@@ -1,5 +1,5 @@
 ultralytics>=8.0
-opencv-python>=4.8
+opencv-python-headless>=4.8
 flask>=3.0
 gunicorn>=21.0
 pytest>=8.0
