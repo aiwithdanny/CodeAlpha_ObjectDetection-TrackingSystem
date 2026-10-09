@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tracking Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="card wide">
+  <h1>✅ Tracking Complete</h1>
+  <video controls src="{{ url_for('outputs', filename=job.output_file) }}"></video>
+  <div class="stats">
+    <div class="stat"><b>{{ job.frames }}</b><span>frames</span></div>
+    <div class="stat"><b>{{ job.unique_objects }}</b><span>unique objects</span></div>
+    <div class="stat"><b>{{ job.elapsed }}s</b><span>processing time</span></div>
+  </div>
+  <h3>Objects detected</h3>
+  <ul>
+    {% for label, n in job.counts.items() %}
+      <li>{{ label }}: <b>{{ n }}</b></li>
+    {% endfor %}
+  </ul>
+  <a class="btn" href="{{ url_for('outputs', filename=job.output_file) }}" download>⬇ Download video</a>
+  <a class="btn ghost" href="{{ url_for('index') }}">↩ New video</a>
+</div>
+</body>
+</html>

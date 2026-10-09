@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object Detection + Tracking</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="card">
+  <h1>🎯 Object Detection + Tracking</h1>
+  <p class="subtitle">YOLOv8 &bull; ByteTrack &bull; boxes + persistent IDs</p>
+
+  <div class="drop" id="drop">
+    <p>📤 Video file yahan drop karein ya click karke choose karein</p>
+    <p class="hint">mp4 / avi / mov / mkv &bull; max {{ max_mb }}MB</p>
+    <input type="file" id="file" accept="video/*" hidden>
+  </div>
+
+  <div id="progress" class="hidden">
+    <div class="bar"><div id="fill"></div></div>
+    <p id="pct">0%</p>
+    <p class="hint">Processing... (pehli dafa model download ho sakta hai)</p>
+  </div>
+
+  <div id="toast"></div>
+</div>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
