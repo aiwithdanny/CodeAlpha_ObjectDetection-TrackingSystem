@@ -35,13 +35,6 @@ def create_app(config_class=Config):
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
     os.makedirs(app.config["OUTPUT_FOLDER"], exist_ok=True)
 
-    # Tracker ek dafa load (model weights memory me reuse)
-    app.tracker = ObjectTracker(
-        model_name=app.config["YOLO_MODEL"],
-        tracker_cfg=app.config["TRACKER"],
-        conf=app.config["CONF_THRESHOLD"],
-    )
-
     def process_job(job_id, in_path, out_path):
         """Background worker: video process karo, progress update karo."""
         job = jobs[job_id]
